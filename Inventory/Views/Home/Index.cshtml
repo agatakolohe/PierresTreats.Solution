@@ -3,45 +3,40 @@
 }
 @using Inventory.Models;
 
+<div class="headers">
+    <h1>Pierre's Sweet and Savory Treats</h1>
+</div>
 
-<h1>Pierre's Sweet and Savory Treats</h1>
+<div class="treats">
+    <ul>
+        <h2>Treats
+            <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/pastry-1939534-1638653.png" width="8%"
+                height="auto">
+        </h2>
+        @if (@Model["treats"].Count == 0)
+        {
+            <p>There are currently no treats</p>
+        }
+        @foreach (Treat treat in @Model["treats"])
+        {
+            <li>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId })</li>
+        }
+    </ul>
+</div>
 
-<ul>
-    <h2>Treats</h2>
-    @if (@Model["treats"].Count == 0)
-    {
-        <p>There are currently no treats</p>
-    }
-    @foreach (Treat treat in @Model["treats"])
-    {
-        <li>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId })</li>
-    }
-</ul>
-
-<ul>
-    <h2>Flavors</h2>
-    @if (@Model["flavors"].Count == 0)
-    {
-        <p>There are currently no flavors</p>
-    }
-    @foreach (Flavor flavor in @Model["flavors"])
-    {
-        <li>@Html.ActionLink($"{flavor.FlavorDescription}", "Details", "Flavors", new { id = flavor.FlavorId })</li>
-    }
-</ul>
-@if (User.Identity.IsAuthenticated)
-{
-    <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
-    <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
-     @using (Html.BeginForm("LogOff", "Account"))
-    {
-    <input type="submit" class="btn btn-primary" value="Log Out"/>
-    }
-}
-else
-{    
-    <p>@Html.ActionLink("Log in", "Login", "Account")</p>
-    <p>@Html.ActionLink("Create Account", "Register", "Account")</p>
-    <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
-    <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
-}
+<div class="flavors">
+    <ul>
+        <h2>Flavors
+            <img src="https://icons-for-free.com/iconfiles/png/512/bakery+svg+line+cupcakes-1319964849177384782.png"
+                width="10%" height="auto">
+        </h2>
+        @if (@Model["flavors"].Count == 0)
+        {
+            <p>There are currently no flavors</p>
+        }
+        @foreach (Flavor flavor in @Model["flavors"])
+        {
+            <li>@Html.ActionLink($"{flavor.FlavorDescription}", "Details", "Flavors", new { id = flavor.FlavorId })</li>
+        }
+    </ul>
+</div>
