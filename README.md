@@ -1,28 +1,32 @@
 <div align="center">
 
-# Application Name
+# Pierre's Sweet and Savory Treats
 
 </div>
 
 <div align="center">
 <img src="https://github.com/agatakolohe.png" width="200px" height="auto" >
 </div>
-<h3 align="center">Description of application, date-2020</h3>
+<h3 align="center">Authentication with Identity, 01-15-2021</h3>
 <h4 align="center"> By Agata Kolodziej</h4>
 
 ## Description
 
-Purpose usage, detailed explanation what is does and any other information you want users and other developers to have
+Market Pierre's sweet and savory treats
 
-## Specifications/User Stories
+## User Stories
 
 <details>
   <summary>Expand</summary>
 
 ### Describe: Name()
 
-| Test | Expect |
-| ---- | ------ |
+- The application should have user authentication. A user should be able to log in and log out.
+- Only logged in users should have create, update and delete functionality.
+- All users should be able to have read functionality.
+- There should be a many-to-many relationship between Treats and Flavors. A treat can have many flavors (such as sweet, savory, spicy, or creamy) and a flavor can have many treats. For instance, the "sweet" flavor could include chocolate croissants, cheesecake, and so on.
+- A user should be able to navigate to a splash page that lists all treats and flavors.
+- Users should be able to click on an individual treat or flavor to see all the treats/flavors that belong to it.
 
 </details>
 
@@ -36,9 +40,9 @@ Purpose usage, detailed explanation what is does and any other information you w
 
 ##### Open Locally
 
-- Click on the link to my repository: [My Repository]()
+- Click on the link to my repository: [My Repository](https://github.com/agatakolohe/PierresTreats.Solution.git)
 - Click on the green "Code" button and copy the repository URL
-- Open your terminal and use the command `git clone REPO URL HERE` into the directory you would like to clone the repository
+- Open your terminal and use the command `git clone https://github.com/agatakolohe/PierresTreats.Solution.git` into the directory you would like to clone the repository
 - Open in text editor to view code and make changes
 
 ##### Installing .NET
@@ -88,17 +92,16 @@ Create a connection string to connect the database to the web application
 ```
 {
     "ConnectionStrings": {
-        "DefaultConnection": "Server=localhost;Port=3306;database=agata_kolodziej;uid=root;pwd=YourPassword;"
+        "DefaultConnection": "Server=localhost;Port=3306;database=agata_kolodziej_pierres_treats;uid=root;pwd=YourPassword;"
     }
 }
 ```
 
-- TODO CHANGE DBNAME
 - Put in your MySQL password in `pwd=YourPassword`. Change the server, port, and uid if necessary.
 
 ### Import Database Using Entity Framework Core
 
-1. Navigate to TODO directory in terminal
+1. Navigate to Inventory directory in terminal
 2. Use the command `dotnet ef database update` to generate the database through Entity Framework Core
 
 ### Update Database Using Entity Framework Core
@@ -121,7 +124,7 @@ Create a connection string to connect the database to the web application
 
 ##### View In Browser
 
-- To view in browser, navigate to TODO folder in the command line
+- To view in browser, navigate to Inventory folder in the command line
 - Use the command `dotnet run` to execute the compiled code and start a localhost
 - In browser navigate to http://localhost:5000
 
@@ -153,4 +156,4 @@ If any errors or bugs occur with installation, delete both bin and obj folders a
 
 This software is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
 
-Copyright (c) 2020 Agata Kolodziej <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Q_3EVY7j95tTyemJwWxMR7jwvUK7gPe0_w&usqp=CAU" width="2%" height="auto">
+Copyright (c) 2021 Agata Kolodziej <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Q_3EVY7j95tTyemJwWxMR7jwvUK7gPe0_w&usqp=CAU" width="2%" height="auto">
