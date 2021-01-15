@@ -5,9 +5,6 @@
 
 <h1>Pierre's Sweet and Savory Treats</h1>
 
-@Html.ActionLink("Add a Treat", "Create", "Treats")
-@Html.ActionLink("Add a Flavor", "Create", "Flavors")
-
 <ul>
     <h2>Treats</h2>
     @if (@Model["treats"].Count == 0)
@@ -31,3 +28,19 @@
         <li>@Html.ActionLink($"{flavor.FlavorDescription}", "Details", "Flavorss", new { id = flavor.FlavorId })</li>
     }
 </ul>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
+    <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
+     @using (Html.BeginForm("LogOff", "Account"))
+    {
+    <input type="submit" class="btn btn-primary" value="Log Out"/>
+    }
+}
+else
+{    
+    <p>@Html.ActionLink("Log in", "Login", "Account")</p>
+    <p>@Html.ActionLink("Create Account", "Register", "Account")</p>
+    <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
+    <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
+}

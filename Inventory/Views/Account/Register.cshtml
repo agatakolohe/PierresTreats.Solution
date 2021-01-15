@@ -1,0 +1,20 @@
+@{
+    Layout = "_Layout";
+}
+
+@using Inventory.ViewModels
+
+@model RegisterViewModel
+
+<h1>Create Account</h1>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    <h2>Email: @Html.TextBoxFor(user => user.Email)</h2>
+    <h2>Password: @Html.TextBoxFor(user => user.Password)</h2>
+    <h2>Confirm Password: @Html.TextBoxFor(user => user.ConfirmPassword)</h2>
+
+    <input type="submit" value="Register" class="btn btn-primary" />
+}
+
+@Html.ActionLink("Home", "Index", "Home")
