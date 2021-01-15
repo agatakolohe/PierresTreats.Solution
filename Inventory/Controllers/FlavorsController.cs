@@ -114,7 +114,11 @@ namespace Inventory.Controllers
         {
             if (TreatId != 0)
             {
-                _db.FlavorTreat.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId });
+                var returnedJoined = _db.FlavorTreat.Any(join => join.FlavorId == flavor.FlavorId && join.TreatId == TreatId);
+                if (!returnedJoined)
+                {
+                    _db.FlavorTreat.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId });
+                }
             }
             _db.SaveChanges();
             return RedirectToAction("Index");
