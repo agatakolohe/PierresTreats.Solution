@@ -61,5 +61,35 @@ namespace Inventory.Controllers
             ViewBag.IsCurrentUser = userId != null ? userId == thisTreat.User.Id : false;
             return View(thisTreat);
         }
+
+        [Authorize]
+        public async Task<ActionResult> Edit(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            var thisTreat = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).FirstOrDefault(treat => treat.TreatId == id);
+            if (thisTreat == null)
+            {
+                return RedirectToAction("Details", new { id = id });
+            }
+            ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorDescription");
+            return View(thisTreat);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Treat treat, int FlavorId)
+        {
+            if (FlavorId != 0)
+            {
+                var returnedJoined = _db.FlavorTreat.Any(join => join.TreatId == treat.TreatId && join.FlavorId == FlavorId);
+                if (!returnedJoined)
+                {
+                    _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
+                }
+            }
+            _db.Entry(treat).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

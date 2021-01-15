@@ -1,0 +1,21 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Inventory.Models.Treat
+
+<h1>Edit</h1>
+<h2>Editing this Treat: @Html.DisplayFor(model => model.TreatName)</h4>
+
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.TreatId)
+
+        <p>Treat Name: @Html.EditorFor(model => model.TreatName)</p>
+
+        @Html.Label("Flavor:") @Html.DropDownList("FlavorId")
+
+        <input type="submit" value="Save" class="btn btn-warning" />
+    }
+    <p>@Html.ActionLink("Back to Treats", "Index")</p>
+    <p>@Html.ActionLink("Home", "Index", "Home")</p>
