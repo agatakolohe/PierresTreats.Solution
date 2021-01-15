@@ -1,0 +1,25 @@
+@using Inventory.Models;
+
+<div class="container">
+<nav class="navbar fixed-top navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      @Html.ActionLink("Home", "Index", "Home", null, new {@class="btn btn-primary"})
+      @Html.ActionLink("Treats", "Index", "Treats", null, new {@class="btn btn-outline-light"})
+      @Html.ActionLink("Flavors", "Index", "Flavors", null, new {@class="btn btn-outline-light"})
+      @if (User.Identity.IsAuthenticated)
+      {
+          @using (Html.BeginForm("LogOff", "Account"))
+          {
+              <input type="submit" class="btn btn-outline-light" value="Log Out"/>
+          }
+      }
+      else
+      {
+       @Html.ActionLink("Log in", "Login", "Account", null, new {@class="btn btn-outline-light"})
+       @Html.ActionLink("Log in", "Login", "Account", null, new {@class="btn btn-outline-light"}) 
+      }
+    </div>
+  </div>
+</nav>
+</div>

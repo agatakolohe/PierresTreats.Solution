@@ -8,3 +8,8 @@ body {
 a {
   color: black;
 }
+.navbar {
+  background-color: #c5a387;
+  border: solid #3e2c21;
+  opacity: 0.8;
+}
