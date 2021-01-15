@@ -1,0 +1,17 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Inventory.Models.Treat
+
+<h1>Delete Treat</h1>
+<h2>Are you sure you want to delete this treat?</h2>
+<hr />
+<h3>Treat Name: @Html.DisplayFor(model => model.TreatName)</h3>
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" class="btn btn-danger" />
+}
+<hr />
+<p>@Html.ActionLink("Treat yo self", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
