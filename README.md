@@ -12,14 +12,12 @@
 
 ## Description
 
-Market Pierre's sweet and savory treats
+Eleventh independent project for Epicodus to demonstrate my understanding of authentication and authorization with Identity. This is an MVC web application written in C# using MySQL for the database functionality. I used Identity to create functionality for a user to register, log in, and log out. This application allows logged in users to have the ability to create, update and delete flavors and treats. All users are able to have the read functionality. This is a many-to-many database relationship between Treats and Flavors. A treat can have many flavors (sweet, salty, spicy) and a flavor can have many treats (cheesecake, bagels, croissants).
 
 ## User Stories
 
 <details>
   <summary>Expand</summary>
-
-### Describe: Name()
 
 - The application should have user authentication. A user should be able to log in and log out.
 - Only logged in users should have create, update and delete functionality.
@@ -70,12 +68,12 @@ MySQL is a type of database software used to create, edit, query, and manage SQL
 
 ##### Compiling
 
-- Navigate to the TODO folder in the command line
+- Navigate to the Inventory folder in the command line
 - Use the command `dotnet build` to compile
 
 ##### Installing Packages
 
-- Navigate to the TODO folder in the command line
+- Navigate to the Inventory folder in the command line
 - Use the command `dotnet restore`
 
 <details>
@@ -127,10 +125,15 @@ Create a connection string to connect the database to the web application
 - To view in browser, navigate to Inventory folder in the command line
 - Use the command `dotnet run` to execute the compiled code and start a localhost
 - In browser navigate to http://localhost:5000
+- From the splash page you can view all the current treats and flavors
+- Click on Register in top nav bar to create an account
+- If you have an account, click Log In in the top nav bar to be able to create, edit, and delete treats and flavors
+- To log out, click the Log Out button in the top nav bar
+- Enjoy the application!
 
 ## Known Bugs
 
-TODO
+If you decide to change the styling of the application and you do not see your updated styles in the browser, please open a new Incognito Window in your browser and you should be able to see your updated styles. The browser caches styles and therefore may not show changes.
 
 ## Support and Contact Details
 
