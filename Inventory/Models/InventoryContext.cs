@@ -7,6 +7,6 @@ namespace Inventory.Models
     {
 
 
-        // public InventoryContext(DbContextOptions options) : base(options) { }
+        public InventoryContext(DbContextOptions options) : base(options) { }
     }
 }

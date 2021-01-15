@@ -8,7 +8,7 @@ namespace Inventory.Models
     public class InventoryContextFactory : IDesignTimeDbContextFactory<InventoryContext>
     {
 
-        ProjectNameContext IDesignTimeDbContextFactory<InventoryContext>.CreateDbContext(string[] args)
+        InventoryContext IDesignTimeDbContextFactory<InventoryContext>.CreateDbContext(string[] args)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
