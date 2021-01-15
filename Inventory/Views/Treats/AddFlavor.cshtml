@@ -1,0 +1,22 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Inventory.Models.Treat
+
+<h2>Add Flavor</h2>
+
+<h4>Add some flavor to this treat: @Html.DisplayFor(model => model.TreatName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.TreatId)
+
+    @Html.Label("Flavor")
+    @Html.DropDownList("FlavorId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Treat yo self", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
