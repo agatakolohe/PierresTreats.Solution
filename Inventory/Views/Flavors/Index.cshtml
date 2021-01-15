@@ -1,0 +1,41 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Inventory.Models
+@model IEnumerable<Inventory.Models.Flavor>;
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h1>Hello @User.Identity.Name! Click on a flavor to see the details!</h1>
+    <hr/>
+}
+else
+{
+   <h1>Hello Guest! Click on a flavor to see the details!</h1> 
+   <hr/>
+}
+
+@if (@Model.Any())
+{
+    @foreach (Flavor flavor in Model)
+    {
+        <h4>@Html.ActionLink($"{flavor.FlavorDescription}","Details", new { id = flavor.FlavorId})</h4><br>
+    }
+} 
+else
+{
+    <h3>No flavors have been added</h3>
+}
+<hr/>
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <h4>@Html.ActionLink("Add Flavor", "Create")</h4>
+}
+else 
+{
+    <h4>Do you have flavors you'd like to add? @Html.ActionLink("Click Here", "Register", "Account") to create an account or @Html.ActionLink("Click Here", "Login", "Account") to log in to your account.</h4>
+}
