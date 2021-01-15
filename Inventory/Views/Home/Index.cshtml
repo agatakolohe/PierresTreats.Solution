@@ -25,7 +25,7 @@
     }
     @foreach (Flavor flavor in @Model["flavors"])
     {
-        <li>@Html.ActionLink($"{flavor.FlavorDescription}", "Details", "Flavorss", new { id = flavor.FlavorId })</li>
+        <li>@Html.ActionLink($"{flavor.FlavorDescription}", "Details", "Flavors", new { id = flavor.FlavorId })</li>
     }
 </ul>
 @if (User.Identity.IsAuthenticated)
