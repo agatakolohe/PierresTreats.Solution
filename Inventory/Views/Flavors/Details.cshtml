@@ -1,0 +1,42 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Inventory.Models.Flavor
+@using System.Security.Claims
+
+<h1>Flavor Details</h1>
+
+<h2>Flavor Description: @Html.DisplayFor(model => model.FlavorDescription)</h2>
+
+@if(@Model.Treats.Count == 0)
+{
+    <p>There are no treats for this flavor</p>
+}
+else
+{
+    <p>Treats:</p>
+    <ul>
+        @foreach(var join in Model.Treats)
+        {
+            <li>@join.Treat.TreatName</li>
+            @if(User.Identity.IsAuthenticated && ViewBag.IsCurrentUser)
+            {
+                @using (Html.BeginForm("DeleteTreat", "Flavors"))
+                {
+                    @Html.Hidden("joinId", @join.FlavorTreatId)
+                    <input type="submit" value="Delete" class="btn btn-danger"/>
+                }
+            }
+        }
+    </ul>
+}
+
+<p>@Html.ActionLink("Back to Flavors", "Index")</p>
+@if (User.Identity.IsAuthenticated && ViewBag.IsCurrentUser)
+{
+    <p>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</p>
+    <p>@Html.ActionLink("Add a Treat", "AddTreat", new { id = Model.FlavorId })</p>
+    <p>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</p>
+}
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
