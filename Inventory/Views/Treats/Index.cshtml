@@ -1,0 +1,41 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Inventory.Models
+@model IEnumerable<Inventory.Models.Treat>;
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h1>Hello @User.Identity.Name! Click on a treat to see the details!</h1>
+    <hr/>
+}
+else
+{
+   <h1>Hello Guest! Click on a treat to see the details!</h1> 
+   <hr/>
+}
+
+@if (@Model.Any())
+{
+    @foreach (Treat treat in Model)
+    {
+        <h4>@Html.ActionLink($"{treat.TreatName}","Details", new { id = treat.TreatId})</h4><br>
+    }
+} 
+else
+{
+    <h3>No treats have been added</h3>
+}
+<hr/>
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <h4>@Html.ActionLink("Add New Recipe", "Create")</h4>
+}
+else 
+{
+    <h4>Do you have treats you'd like to add? @Html.ActionLink("Click Here", "Register", "Account") to create an account or @Html.ActionLink("Click Here", "Login", "Account") to log in to your account.</h4>
+}
