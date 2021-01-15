@@ -8,6 +8,7 @@ namespace Inventory.Models
         {
             this.Flavors = new HashSet<FlavorTreat>();
         }
+
         public int TreatId { get; set; }
         public string TreatName { get; set; }
         public virtual ApplicationUser User { get; set; }
