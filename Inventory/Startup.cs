@@ -61,7 +61,7 @@ namespace Inventory
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Oopsie Doodle!");
+                await context.Response.WriteAsync("Something went wrong!");
             });
         }
     }

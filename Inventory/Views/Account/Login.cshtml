@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     <h2>Email: @Html.TextBoxFor(m => m.Email)</h2>
-    <h2>Password: @Html.TextBoxFor(m => m.Password)</h2>
+    <h2>Password: @Html.PasswordFor(m => m.Password)</h2>
 
     <input type="submit" value="Log In" class="btn btn-primary" />
 }
