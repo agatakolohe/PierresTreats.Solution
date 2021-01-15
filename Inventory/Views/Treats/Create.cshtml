@@ -1,0 +1,19 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Inventory.Models.Treat
+
+<h1>Add a Treat</h1>
+
+@using (Html.BeginForm())
+{
+    <h2>Treat Name: @Html.TextBoxFor(model => model.TreatName)</h2>
+
+    @Html.Label("Flavor") @Html.DropDownList("FlavorId")
+
+    <input type="submit" value="Add new treat" class="btn btn-primary" />
+}
+
+<p>@Html.ActionLink("All Treats", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
