@@ -120,6 +120,37 @@ namespace Inventory.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            Flavor thisFlavor = _db.Flavors
+                .Where(entry => entry.User.Id == currentUser.Id)
+                .FirstOrDefault(flavor => flavor.FlavorId == id);
+            if (thisFlavor == null)
+            {
+                return RedirectToAction("Details", new { id = id });
+            }
+            return View(thisFlavor);
+        }
 
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+            _db.Flavors.Remove(thisFlavor);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult DeleteTreat(int joinId)
+        {
+            var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
+            _db.FlavorTreat.Remove(joinEntry);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
