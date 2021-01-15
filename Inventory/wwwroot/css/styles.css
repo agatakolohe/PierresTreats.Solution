@@ -10,6 +10,16 @@ a {
 }
 .navbar {
   background-color: #c5a387;
-  border: solid #3e2c21;
+  border: solid #c19874;
   opacity: 0.8;
+  padding: 1%;
+}
+.btn {
+  background-color: #986f53;
+  padding: 3%;
+  border-radius: 10%;
+  font-size: medium;
+}
+.btn:hover {
+  background-color: darkcyan;
 }

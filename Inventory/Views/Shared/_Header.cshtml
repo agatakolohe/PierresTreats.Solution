@@ -1,12 +1,14 @@
 @using Inventory.Models;
 
-<div class="container">
-<nav class="navbar fixed-top navbar-light bg-light">
+
+<nav class="navbar fixed-top navbar-expand-lg bg-light">
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      @Html.ActionLink("Home", "Index", "Home", null, new {@class="btn btn-primary"})
-      @Html.ActionLink("Treats", "Index", "Treats", null, new {@class="btn btn-outline-light"})
-      @Html.ActionLink("Flavors", "Index", "Flavors", null, new {@class="btn btn-outline-light"})
+        <img src="https://cdn4.iconfinder.com/data/icons/coffee-cafe-brewery-caramel-vol-1/512/CROISSANT-512.png" width="10%" height="auto">
+        <a>@Html.ActionLink("Home", "Index", "Home", null, new {@class="btn"})</a>
+        <a>@Html.ActionLink("Treats", "Index", "Treats", null, new {@class="btn"})</a>
+        <a>@Html.ActionLink("Flavors", "Index", "Flavors", null, new {@class="btn"})</a>
+        
       @if (User.Identity.IsAuthenticated)
       {
           @using (Html.BeginForm("LogOff", "Account"))
@@ -16,10 +18,9 @@
       }
       else
       {
-       @Html.ActionLink("Log in", "Login", "Account", null, new {@class="btn btn-outline-light"})
-       @Html.ActionLink("Log in", "Login", "Account", null, new {@class="btn btn-outline-light"}) 
+       <a>@Html.ActionLink("Log in", "Login", "Account", null, new {@class="btn"})</a>
+       <a>@Html.ActionLink("Register", "Register", "Account", null, new {@class="btn"}) </a>
       }
     </div>
   </div>
 </nav>
-</div>
