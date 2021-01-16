@@ -5,7 +5,7 @@
 @using Inventory.Models
 @model IEnumerable<Inventory.Models.Flavor>;
 
-
+<div class="headers">
 @if (User.Identity.IsAuthenticated)
 {
     <h1>Hello @User.Identity.Name! Click on a flavor to see the details!</h1>
@@ -16,7 +16,8 @@ else
    <h1>Hello Guest! Click on a flavor to see the details!</h1> 
    <hr/>
 }
-
+</div>
+<div class="flavors">
 @if (@Model.Any())
 {
     @foreach (Flavor flavor in Model)
@@ -28,14 +29,15 @@ else
 {
     <h3>No flavors have been added</h3>
 }
+</div>
 <hr/>
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<div class="treats">
 @if (User.Identity.IsAuthenticated)
 {
-    <h4>@Html.ActionLink("Add Flavor", "Create")</h4>
+    <h4>@Html.ActionLink("Add Flavor", "Create", null, null, new {@class="navbtn"})</h4>
 }
 else 
 {
     <h4>Do you have flavors you'd like to add? @Html.ActionLink("Click Here", "Register", "Account") to create an account or @Html.ActionLink("Click Here", "Login", "Account") to log in to your account.</h4>
 }
+</div>
