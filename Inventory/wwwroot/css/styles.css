@@ -56,3 +56,6 @@ a {
   padding: 1%;
   opacity: 0.8;
 }
+.headers h4 {
+  text-align: center;
+}
