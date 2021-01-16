@@ -6,15 +6,16 @@
 
 @model RegisterViewModel
 
-<h1>Create Account</h1>
+<div class="headers">
+    <h1>Create Account</h1>
+</div>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post))
-{
-    <h2>Email: @Html.TextBoxFor(user => user.Email)</h2>
-    <h2>Password: @Html.PasswordFor(user => user.Password)</h2>
-    <h2>Confirm Password: @Html.PasswordFor(user => user.ConfirmPassword)</h2>
-
-    <input type="submit" value="Register" class="btn btn-primary" />
-}
-
-@Html.ActionLink("Home", "Index", "Home")
+<div class="treats">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+        <h4>Email: @Html.TextBoxFor(user => user.Email)</h4>
+        <h4>Password: @Html.PasswordFor(user => user.Password)</h4>
+        <h4>Confirm Password: @Html.PasswordFor(user => user.ConfirmPassword)</h4>
+        <input type="submit" value="Register" class="btn btn-primary" />
+    }
+</div>

@@ -15,15 +15,23 @@ a {
   opacity: 0.8;
   padding: 1%;
 }
-.btn {
+
+.navbtn {
   background-color: #986f53;
   padding: 3%;
   border-radius: 10%;
   font-size: medium;
 }
-
+.logoutbtn {
+  background-color: darkcyan;
+}
 .btn:hover {
   background-color: darkcyan;
+}
+.btn-primary {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .headers {
   background-color: #c5a387;

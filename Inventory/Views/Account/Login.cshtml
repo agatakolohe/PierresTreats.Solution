@@ -5,14 +5,15 @@
 @using Inventory.ViewModels
 @model LoginViewModel
 
-<h1>Log In</h1>
+<div class="headers">
+    <h1>Log In</h1>
+</div>
 
-@using (Html.BeginForm())
-{
-    <h2>Email: @Html.TextBoxFor(m => m.Email)</h2>
-    <h2>Password: @Html.PasswordFor(m => m.Password)</h2>
-
-    <input type="submit" value="Log In" class="btn btn-primary" />
-}
-
-@Html.ActionLink("Home", "Index", "Home")
+<div class="treats">
+    @using (Html.BeginForm())
+    {
+        <h4>Email: @Html.TextBoxFor(m => m.Email)</h4>
+        <h4>Password: @Html.PasswordFor(m => m.Password)</h4>
+        <input type="submit" value="Log In" class="btn btn-primary" />
+    }
+</div>

@@ -2,25 +2,25 @@
 
 
 <nav class="navbar fixed-top navbar-expand-lg bg-light">
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-        <img src="https://cdn4.iconfinder.com/data/icons/coffee-cafe-brewery-caramel-vol-1/512/CROISSANT-512.png" width="10%" height="auto">
-        <a>@Html.ActionLink("Home", "Index", "Home", null, new {@class="btn"})</a>
-        <a>@Html.ActionLink("Treats", "Index", "Treats", null, new {@class="btn"})</a>
-        <a>@Html.ActionLink("Flavors", "Index", "Flavors", null, new {@class="btn"})</a>
-        
-      @if (User.Identity.IsAuthenticated)
-      {
-          @using (Html.BeginForm("LogOff", "Account"))
-          {
-              <input type="submit" class="btn" value="Log Out"/>
-          }
-      }
-      else
-      {
-       <a>@Html.ActionLink("Log in", "Login", "Account", null, new {@class="btn"})</a>
-       <a>@Html.ActionLink("Register", "Register", "Account", null, new {@class="btn"}) </a>
-      }
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <img src="https://cdn4.iconfinder.com/data/icons/coffee-cafe-brewery-caramel-vol-1/512/CROISSANT-512.png"
+                width="10%" height="auto" class="navimg">
+            <a>@Html.ActionLink("Home", "Index", "Home", null, new {@class="navbtn"})</a>
+            <a>@Html.ActionLink("Treats", "Index", "Treats", null, new {@class="navbtn"})</a>
+            <a>@Html.ActionLink("Flavors", "Index", "Flavors", null, new {@class="navbtn"})</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                @using (Html.BeginForm("LogOff", "Account"))
+                    {
+                        <a><input type="submit" class="btn logoutbtn" value="Log Out" /></a>
+                    }
+            }
+            else
+            {
+                <a>@Html.ActionLink("Log in", "Login", "Account", null, new {@class="navbtn"})</a>
+                <a>@Html.ActionLink("Register", "Register", "Account", null, new {@class="navbtn"}) </a>
+            }
+        </div>
     </div>
-  </div>
 </nav>
