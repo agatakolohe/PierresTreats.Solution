@@ -7,17 +7,15 @@
 <div class="headers">
 <h1>Account</h1>
 </div>
+<hr/>
+<div class="flavors">
 @if (User.Identity.IsAuthenticated)
 {
-    <h2>Welcome Back @User.Identity.Name</h2>
+    <h2>Welcome Back @User.Identity.Name!</h2>
+    <hr/>
     @using (Html.BeginForm("LogOff", "Account"))
     {
-        <input type="submit" class="btn btn-primary" value="Log Out"/>
+        <input type="submit" class="btn logoutbtn" value="Log Out"/>
     }
 }
-else
-{
-    <p>@Html.ActionLink("Register", "Register")</p>
-    <p>@Html.ActionLink("Log In", "Login")</p>
-}
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+</div>
