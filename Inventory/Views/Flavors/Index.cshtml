@@ -15,7 +15,7 @@
 else
 {
    <h1>Hello Guest!</h1> 
-   <h4>Click on a flavor to see the details!</h4>
+   <h4>Click on a flavor to see details.</h4>
    <h5></h5>
    <hr/>
 }
@@ -34,7 +34,7 @@ else
 }
 <hr/>
 </div>
-<hr/>
+
 <div class="treats">
 @if (User.Identity.IsAuthenticated)
 {
@@ -42,7 +42,9 @@ else
 }
 else 
 {
+    <hr/>
     <h4>Do you have flavors you'd like to add?</h4> 
     <h4>Click <strong>Register</strong> to create an account or <strong>Log in</strong> to sign in at the top.</h4>
+    <hr/>
 }
 </div>
