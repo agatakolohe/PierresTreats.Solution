@@ -4,18 +4,19 @@
 
 @model Inventory.Models.Treat
 
-<h1>Edit</h1>
-<h2>Editing this Treat: @Html.DisplayFor(model => model.TreatName)</h4>
-
+<div class="headers">
+    <h1>Edit</h1>
+    <h3>Editing: @Html.DisplayFor(model => model.TreatName)</h3>
+</div>
+<div class="treats">
     @using (Html.BeginForm())
     {
         @Html.HiddenFor(model => model.TreatId)
 
-        <p>Treat Name: @Html.EditorFor(model => model.TreatName)</p>
+        <h4>Treat Name: @Html.EditorFor(model => model.TreatName)</h4>
 
-        @Html.Label("Flavor:") @Html.DropDownList("FlavorId")
+        <h4>Flavors: @Html.DropDownList("FlavorId")</h4>
 
-        <input type="submit" value="Save" class="btn btn-warning" />
+        <input type="submit" value="Save" class="btn btn-primary" />
     }
-    <p>@Html.ActionLink("Back to Treats", "Index")</p>
-    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+</div>

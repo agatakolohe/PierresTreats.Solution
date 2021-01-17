@@ -5,17 +5,19 @@
 @model Inventory.Models.Treat
 @using System.Security.Claims
 
+<div class="headers">
 <h1>Treat Details</h1>
-
+</div>
+<div class="treats">
 <h2>Treat Name: @Html.DisplayFor(model => model.TreatName)</h2>
 
 @if(@Model.Flavors.Count == 0)
 {
-    <p>There are no flavors added for this treat</p>
+    <h4>There are no flavors added for this treat</h4>
 }
 else
 {
-    <p>Flavors:</p>
+    <h4>Flavors:</h4>
     <ul>
         @foreach(var join in Model.Flavors)
         {
@@ -31,12 +33,12 @@ else
         }
     </ul>
 }
-
-<p>@Html.ActionLink("Back to Treats", "Index")</p>
+</div>
+<div class="flavors">
 @if (User.Identity.IsAuthenticated && ViewBag.IsCurrentUser)
 {
-    <p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</p>
-    <p>@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId })</p>
-    <p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</p>
+    <p>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId }, new {@class="btn btn-primary"})</p>
+    <p>@Html.ActionLink("Add a Flavor", "AddFlavor", new { id = Model.TreatId }, new {@class="btn btn-primary"})</p>
+    <p>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId }, new {@class="btn btn-primary"})</p>
 }
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+</div>

@@ -3,20 +3,19 @@
 }
 
 @model Inventory.Models.Treat
+<div class="headers">
+    <h1>Add Flavor</h1>
+</div>
+<div class="treats">
+    <h4>Add Some Flavor To: @Html.DisplayFor(model => model.TreatName)</h4>
 
-<h2>Add Flavor</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.TreatId)
 
-<h4>Add some flavor to this treat: @Html.DisplayFor(model => model.TreatName)</h4>
+        <h4>Flavors: @Html.DropDownList("FlavorId")</h4>
 
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(model => model.TreatId)
-
-    @Html.Label("Flavor")
-    @Html.DropDownList("FlavorId")
-
-    <input type="submit" value="Save" />
-}
-
-<p>@Html.ActionLink("Treat yo self", "Index")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+        <input type="submit" value="Save" class="btn btn-primary" />
+    }
+</div>
+<a href="https://www.youtube.com/watch?v=gSjM5B3QNlw" class="btn btn-success">Treat Yo Self</a>

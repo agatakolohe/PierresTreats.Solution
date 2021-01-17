@@ -36,7 +36,7 @@ else
 <div class="flavors">
 @if (User.Identity.IsAuthenticated)
 {
-    <h4>@Html.ActionLink("Add Treat", "Create")</h4>
+    <h4>@Html.ActionLink("Add Treat", "Create",  null, null, new {@class="btn btn-primary"})</h4>
 }
 else 
 {
