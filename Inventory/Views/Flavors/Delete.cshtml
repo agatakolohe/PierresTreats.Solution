@@ -4,14 +4,15 @@
 
 @model Inventory.Models.Flavor
 
-<h1>Delete Flavor</h1>
-<h2>Are you sure you want to delete this flavor?</h2>
-<hr />
-<h3>Flavor Description: @Html.DisplayFor(model => model.FlavorDescription)</h3>
-@using (Html.BeginForm())
-{
-    <input type="submit" value="Delete" class="btn btn-danger" />
-}
-<hr />
-<p>@Html.ActionLink("Back to flavors", "Index")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<div class="headers">
+    <h1>Delete Flavor</h1>
+    <h3>Are you sure you want to delete this flavor?</h3>
+    <hr />
+</div>
+<div class="flavors">
+    <h3>Flavor Description: @Html.DisplayFor(model => model.FlavorDescription)</h3>
+    @using (Html.BeginForm())
+    {
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    }
+</div>

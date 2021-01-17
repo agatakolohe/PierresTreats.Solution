@@ -4,16 +4,16 @@
 
 @model Inventory.Models.Flavor
 
-<h1>Add Flavor</h1>
+<div class="headers">
+    <h1>Add Flavor</h1>
+</div>
+<div class="flavors">
+    @using (Html.BeginForm())
+    {
+        <h4>Flavor Description: @Html.TextBoxFor(model => model.FlavorDescription)</h4>
 
-@using (Html.BeginForm())
-{
-    <h2>Flavor Description: @Html.TextBoxFor(model => model.FlavorDescription)</h2>
+        <h4>Treats: @Html.DropDownList("TreatId")</h4>
 
-    @Html.Label("Treat") @Html.DropDownList("TreatId")
-
-    <input type="submit" value="Add Flavor" class="btn btn-primary" />
-}
-
-<p>@Html.ActionLink("All Flavors", "Index")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+        <input type="submit" value="Add Flavor" class="btn btn-primary" />
+    }
+</div>

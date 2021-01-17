@@ -5,18 +5,21 @@
 @using Inventory.Models
 @model IEnumerable<Inventory.Models.Treat>;
 
-
+<div class="headers">
 @if (User.Identity.IsAuthenticated)
 {
-    <h1>Hello @User.Identity.Name! Click on a treat to see the details!</h1>
+    <h1>Hello @User.Identity.Name!</h1>
+    <h4>Click on a treat to see the details!</h4>
     <hr/>
 }
 else
 {
-   <h1>Hello Guest! Click on a treat to see the details!</h1> 
+   <h1>Hello Guest!</h1> 
+   <h4>Click on a treat to see the details!</h4>
    <hr/>
 }
-
+</div>
+<div class="treats">
 @if (@Model.Any())
 {
     @foreach (Treat treat in Model)
@@ -26,16 +29,18 @@ else
 } 
 else
 {
-    <h3>No treats have been added</h3>
+    <h4>No treats have been added</h4>
 }
 <hr/>
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+</div>
+<div class="flavors">
 @if (User.Identity.IsAuthenticated)
 {
     <h4>@Html.ActionLink("Add Treat", "Create")</h4>
 }
 else 
 {
-    <h4>Do you have treats you'd like to add? @Html.ActionLink("Click Here", "Register", "Account") to create an account or @Html.ActionLink("Click Here", "Login", "Account") to log in to your account.</h4>
+    <h4>Do you have treats you'd like to add?</h4> 
+    <h4>Click <strong>Register</strong> to create an account or <strong>Log in</strong> to sign in at the top.</h4>
 }
+</div>

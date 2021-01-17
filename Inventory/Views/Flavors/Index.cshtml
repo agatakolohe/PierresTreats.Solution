@@ -8,12 +8,15 @@
 <div class="headers">
 @if (User.Identity.IsAuthenticated)
 {
-    <h1>Hello @User.Identity.Name! Click on a flavor to see the details!</h1>
+    <h1>Hello @User.Identity.Name!</h1>
+    <h4>Click on a flavor to see the details!</h4>
     <hr/>
 }
 else
 {
-   <h1>Hello Guest! Click on a flavor to see the details!</h1> 
+   <h1>Hello Guest!</h1> 
+   <h4>Click on a flavor to see the details!</h4>
+   <h5></h5>
    <hr/>
 }
 </div>
@@ -27,17 +30,19 @@ else
 } 
 else
 {
-    <h3>No flavors have been added</h3>
+    <h4>No flavors have been added</h4>
 }
+<hr/>
 </div>
 <hr/>
 <div class="treats">
 @if (User.Identity.IsAuthenticated)
 {
-    <h4>@Html.ActionLink("Add Flavor", "Create", null, null, new {@class="navbtn"})</h4>
+    <h4>@Html.ActionLink("Add Flavor", "Create", null, null, new {@class="btn btn-primary"})</h4>
 }
 else 
 {
-    <h4>Do you have flavors you'd like to add? @Html.ActionLink("Click Here", "Register", "Account") to create an account or @Html.ActionLink("Click Here", "Login", "Account") to log in to your account.</h4>
+    <h4>Do you have flavors you'd like to add?</h4> 
+    <h4>Click <strong>Register</strong> to create an account or <strong>Log in</strong> to sign in at the top.</h4>
 }
 </div>

@@ -11,11 +11,16 @@
 <div class="flavors">
 @if (User.Identity.IsAuthenticated)
 {
-    <h2>Welcome Back @User.Identity.Name!</h2>
+    <h3>Welcome Back @User.Identity.Name!</h3>
     <hr/>
     @using (Html.BeginForm("LogOff", "Account"))
     {
         <input type="submit" class="btn logoutbtn" value="Log Out"/>
     }
+}
+else
+{
+    <p>@Html.ActionLink("Register", "Register", null, null, new {@class="btn btn-primary"})</p>
+    <p>@Html.ActionLink("Log In", "Login", null, null, new {@class="btn btn-primary"})</p>
 }
 </div>
