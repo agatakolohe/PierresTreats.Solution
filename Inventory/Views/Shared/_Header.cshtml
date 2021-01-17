@@ -9,7 +9,6 @@
             <a>@Html.ActionLink("Home", "Index", "Home", null, new {@class="navbtn"})</a>
             <a>@Html.ActionLink("Treats", "Index", "Treats", null, new {@class="navbtn"})</a>
             <a>@Html.ActionLink("Flavors", "Index", "Flavors", null, new {@class="navbtn"})</a>
-            <a href="https://www.youtube.com/watch?v=gSjM5B3QNlw" class="navbtn">Treat Yo Self</a>
             @if (User.Identity.IsAuthenticated)
             {
                 @using (Html.BeginForm("LogOff", "Account"))
