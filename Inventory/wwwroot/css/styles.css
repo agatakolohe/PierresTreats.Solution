@@ -18,10 +18,9 @@ a {
 
 .navbtn {
   background-color: #986f53;
-  padding: 3%;
+  padding: 2%;
   border-radius: 10%;
   font-size: medium;
-  margin-left: 5%;
 }
 .logoutbtn {
   background-color: darkcyan;
@@ -36,6 +35,7 @@ a {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  background-color: darkcyan;
 }
 .headers {
   background-color: #c5a387;
