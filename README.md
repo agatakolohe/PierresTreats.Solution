@@ -142,6 +142,7 @@ If any errors or bugs occur with installation, delete both bin and obj folders a
 ## Technologies Used
 
 - .NET Core 2.2.0
+- ASP.NET Core Identity
 - ASP.NET Core MVC
 - ASP.NET Core Razor Pages
 - Bootstrap
